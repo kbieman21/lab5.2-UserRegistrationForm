@@ -111,7 +111,7 @@ myForm.addEventListener("submit", function (event) {
 
 //On page load, check localStorage for a saved username if found insert it into the username field
 window.addEventListener("DOMContentLoaded", function () {
-  const userNameSaved = this.localStorage.getItem("userName");
+  const userNameSaved = localStorage.getItem("userName");
   if (userNameSaved) {
     userNameInput.value = userNameSaved;
     document.getElementById("email").focus();
