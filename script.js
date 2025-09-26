@@ -11,10 +11,8 @@ const emailError = document.getElementById("emailError");
 const passwordError = document.getElementById("passwordError");
 const confirmPasswordError = document.getElementById("confirmPasswordError");
 
-// Over all message from the form
-// const formMessage = document.getElementById('formMessage');
-// formMessage.textContent = "Signup Successful";
-// formMessage.style.color = 'green';
+// get the DOM for over all message from the form
+const formMessage = document.getElementById("formMessage");
 
 // optional if I want strong password
 /*const strongPasswordRegex =
@@ -87,7 +85,9 @@ myForm.addEventListener("submit", function (event) {
   //final check
   if (myForm.checkValidity()) {
     //success
-    alert("successfully submitted");
+    //alert("successfully submitted");
+    formMessage.textContent = "Signup Successful";
+    formMessage.style.color = "green";
 
     //store user name in local storage
     const username = userNameInput.value.trim();
@@ -110,10 +110,10 @@ myForm.addEventListener("submit", function (event) {
 });
 
 //On page load, check localStorage for a saved username if found insert it into the username field
-window.addEventListener('DOMContentLoaded', function(){
-    const userNameSaved = this.localStorage.getItem('userName');
-    if(userNameSaved){
-        userNameInput.value = userNameSaved;
-        document.getElementById('email').focus();
-    }
-})
+window.addEventListener("DOMContentLoaded", function () {
+  const userNameSaved = this.localStorage.getItem("userName");
+  if (userNameSaved) {
+    userNameInput.value = userNameSaved;
+    document.getElementById("email").focus();
+  }
+});
